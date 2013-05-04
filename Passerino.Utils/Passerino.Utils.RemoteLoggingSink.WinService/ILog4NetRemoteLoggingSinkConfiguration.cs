@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using Passerino.Utils.ConfigurationValidator;
 using Passerino.Utils.Logging;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
@@ -11,27 +12,18 @@ namespace Passerino.Utils.RemoteLoggingSink.WinService
 
     class Log4NetRemoteLoggingSinkConfiguration : ILog4NetRemoteLoggingSinkConfiguration
     {
-        private readonly ILogProcessor _logProcessor;
+        private readonly IConfigManager _configManager;
 
-        public Log4NetRemoteLoggingSinkConfiguration(ILogProcessor logProcessor)
+        public Log4NetRemoteLoggingSinkConfiguration(IConfigManager configManager)
         {
-            _logProcessor = logProcessor.SetSource(GetType());
+            _configManager = configManager;
         }
 
         public int RemotingPort
         {
             get
             {
-                var remotingPort = ConfigurationManager.AppSettings["RemotingPort"];
-                int port;
-                if (!Int32.TryParse(remotingPort, out port))
-                {
-                    var errorMessage = string.Format("Failed to parse port from appsettings/RemotingPort. Found value {0}",remotingPort);
-                    _logProcessor.Fatal(errorMessage).Proceed();
-
-                    throw new Exception(errorMessage);
-                }
-                return port;
+                return _configManager.AppSettings<int>("RemotingPort");
             }
         }
     }
