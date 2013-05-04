@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Management\AppConfig\AppConfigManager.cs" />
     <Compile Include="Management\ConfigManager.cs" />
+    <Compile Include="Management\IConfigManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\IConfigurationValidator.cs" />
     <Compile Include="Validation\StructureMap\StructureMapValidator.cs" />

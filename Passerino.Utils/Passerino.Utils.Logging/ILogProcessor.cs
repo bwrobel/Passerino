@@ -1,4 +1,5 @@
 ﻿using System;
+using Passerino.Utils.Logging.Log4Net;
 
 namespace Passerino.Utils.Logging
 {

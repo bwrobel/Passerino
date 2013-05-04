@@ -43,8 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ILogProcessor.cs" />
-    <Compile Include="Log4NetEntry.cs" />
-    <Compile Include="Log4NetProcessor.cs" />
+    <Compile Include="Log4Net\Log4NetEntry.cs" />
+    <Compile Include="Log4Net\Log4NetProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
