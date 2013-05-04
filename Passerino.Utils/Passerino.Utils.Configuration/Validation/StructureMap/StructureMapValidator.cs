@@ -1,16 +1,15 @@
 ﻿using System;
-using AutoMapper;
-using Passerino.Utils.ConfigurationValidator.Validation.IoC;
 using Passerino.Utils.Logging;
 using StructureMap;
+using StructureMap.Configuration.DSL;
 
-namespace Passerino.Utils.ConfigurationValidator.Validation.Mapping
+namespace Passerino.Utils.Configuration.Validation.StructureMap
 {
-    public class AutoMapperValidator : IConfigurationValidator
+    public class StructureMapValidator : IConfigurationValidator
     {
         private readonly ILogProcessor _logProcessor;
 
-        public AutoMapperValidator(ILogProcessor logProcessor)
+        public StructureMapValidator(ILogProcessor logProcessor)
         {
             _logProcessor = logProcessor.SetSource(GetType());
         }
@@ -18,26 +17,24 @@ namespace Passerino.Utils.ConfigurationValidator.Validation.Mapping
         public bool AssertConfigurationIsValid()
         {
             var configurationIsValid = true;
-            foreach (var profile in ObjectFactory.GetAllInstances<Profile>())
+            foreach (var registry in ObjectFactory.GetAllInstances<Registry>())
             {
                 try
                 {
-                    Mapper.AddProfile(profile);
-                    Mapper.AssertConfigurationIsValid();
-                    Mapper.Reset();
+                    ObjectFactory.Initialize(init => init.AddRegistry(registry));
+                    ObjectFactory.AssertConfigurationIsValid();
                 }
                 catch (Exception ex)
                 {
+                    
                     _logProcessor
-                        .Fatal("AssertConfiguration Failed for Profile \"{0}\"", profile.GetType().FullName)
+                        .Fatal("AssertConfiguration Failed for Registry \"{0}\"",registry.GetType().FullName)
                         .WithException(ex)
                         .Proceed();
 
                     configurationIsValid = false;
                 }
-                
             }
-
             return configurationIsValid;
         }
     }

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Configuration;
-using Passerino.Utils.ConfigurationValidator;
-using Passerino.Utils.Logging;
+﻿using Passerino.Utils.Configuration;
+using Passerino.Utils.Configuration.Management;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
 {
@@ -23,7 +21,7 @@ namespace Passerino.Utils.RemoteLoggingSink.WinService
         {
             get
             {
-                return _configManager.AppSettings<int>("RemotingPort");
+                return _configManager.GetAppSetting<int>("RemotingPort", x => (x > 0 && x <= 65536) );
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
 using Passerino.Utils.Logging;
+using StructureMap;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
 {
@@ -15,10 +16,10 @@ namespace Passerino.Utils.RemoteLoggingSink.WinService
         static void Main()
         {
             log4net.Config.XmlConfigurator.Configure();
-            var logProcessor = new Log4NetProcessor();
+
             var servicesToRun = new ServiceBase[] 
                 { 
-                    new Log4NetRemoteLoggingSinkWinService(new Log4NetRemoteLoggingSinkConfiguration(logProcessor),logProcessor) 
+                    ObjectFactory.GetInstance<Log4NetRemoteLoggingSinkWinService>() 
                 };
 
             try

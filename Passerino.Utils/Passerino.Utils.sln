@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.RemoteLoggi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.IoC", "Passerino.Utils.IoC\Passerino.Utils.IoC.csproj", "{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.ConfigurationValidator", "Passerino.Utils.ConfigurationValidator\Passerino.Utils.ConfigurationValidator.csproj", "{F9E61BD5-DA8B-490A-B43E-FDD236294746}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.Configuration", "Passerino.Utils.Configuration\Passerino.Utils.Configuration.csproj", "{F9E61BD5-DA8B-490A-B43E-FDD236294746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

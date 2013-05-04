@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
 using Passerino.Utils.Logging;
 using StructureMap;
-using StructureMap.Configuration.DSL;
 
-namespace Passerino.Utils.ConfigurationValidator.Validation.IoC
+namespace Passerino.Utils.Configuration.Validation.AutoMapper
 {
-    public class StructureMapValidator : IConfigurationValidator
+    public class AutoMapperValidator : IConfigurationValidator
     {
         private readonly ILogProcessor _logProcessor;
 
-        public StructureMapValidator(ILogProcessor logProcessor)
+        public AutoMapperValidator(ILogProcessor logProcessor)
         {
             _logProcessor = logProcessor.SetSource(GetType());
         }
@@ -21,24 +17,26 @@ namespace Passerino.Utils.ConfigurationValidator.Validation.IoC
         public bool AssertConfigurationIsValid()
         {
             var configurationIsValid = true;
-            foreach (var registry in ObjectFactory.GetAllInstances<Registry>())
+            foreach (var profile in ObjectFactory.GetAllInstances<Profile>())
             {
                 try
                 {
-                    ObjectFactory.Initialize(init => init.AddRegistry(registry));
-                    ObjectFactory.AssertConfigurationIsValid();
+                    Mapper.AddProfile(profile);
+                    Mapper.AssertConfigurationIsValid();
+                    Mapper.Reset();
                 }
                 catch (Exception ex)
                 {
-                    
                     _logProcessor
-                        .Fatal("AssertConfiguration Failed for Registry \"{0}\"",registry.GetType().FullName)
+                        .Fatal("AssertConfiguration Failed for Profile \"{0}\"", profile.GetType().FullName)
                         .WithException(ex)
                         .Proceed();
 
                     configurationIsValid = false;
                 }
+                
             }
+
             return configurationIsValid;
         }
     }
