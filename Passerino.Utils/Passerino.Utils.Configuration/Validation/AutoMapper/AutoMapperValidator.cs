@@ -14,9 +14,8 @@ namespace Passerino.Utils.Configuration.Validation.AutoMapper
             _logProcessor = logProcessor.SetSource(GetType());
         }
 
-        public bool AssertConfigurationIsValid()
+        public void AssertConfigurationIsValid()
         {
-            var configurationIsValid = true;
             foreach (var profile in ObjectFactory.GetAllInstances<Profile>())
             {
                 try
@@ -32,12 +31,9 @@ namespace Passerino.Utils.Configuration.Validation.AutoMapper
                         .WithException(ex)
                         .Proceed();
 
-                    configurationIsValid = false;
+                    throw;
                 }
-                
             }
-
-            return configurationIsValid;
         }
     }
 }

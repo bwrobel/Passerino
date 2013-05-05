@@ -1,37 +1,43 @@
 ﻿using System;
 using System.ServiceProcess;
-using Passerino.Utils.Logging;
+using Passerino.Utils.Configuration.Management.Log4NetConfig;
+using Passerino.Utils.Configuration.Management.StructureMapConfig;
 using StructureMap;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
 {
     static class Program
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-            (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         static void Main()
         {
-            log4net.Config.XmlConfigurator.Configure();
-
-            var servicesToRun = new ServiceBase[] 
-                { 
-                    ObjectFactory.GetInstance<Log4NetRemoteLoggingSinkWinService>() 
-                };
+            var log = Log4NetConfigManager
+                .GetInstance(Environment.CurrentDirectory)
+                .SetSource(typeof(Program));
 
             try
             {
-                ServiceBase.Run(servicesToRun);
+                StructureMapConfigManager.Initialize();
             }
             catch (Exception ex)
             {
-                log.Fatal("Couldn't start service.", ex);
+                log.Fatal("IoC Unhandled Exception").WithException(ex).Proceed();
                 throw;
             }
-            ServiceBase.Run(servicesToRun);
+
+            var serviceToRun = ObjectFactory.GetInstance<Log4NetRemoteLoggingSinkWinService>();
+
+            try
+            {
+                ServiceBase.Run(serviceToRun);
+            }
+            catch (Exception ex)
+            {
+                log.Fatal("Couldn't start service.").WithException(ex).Proceed();
+                throw;
+            }
         }
     }
 }

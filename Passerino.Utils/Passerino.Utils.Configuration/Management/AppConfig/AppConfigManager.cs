@@ -12,7 +12,7 @@ namespace Passerino.Utils.Configuration.Management.AppConfig
             var stringValue = ConfigurationManager.AppSettings[key];
             if (stringValue == null)
             {
-                throw new ConfigurationErrorsException(string.Format("AppSettings Value for key \"{0}\" not provided", key));
+                throw new ConfigurationErrorsException(string.Format(@"AppSettings Value for key ""{0}"" not provided", key));
             }
 
             T castedValue;
@@ -22,7 +22,7 @@ namespace Passerino.Utils.Configuration.Management.AppConfig
             }
             catch (Exception ex)
             {
-                throw new ConfigurationErrorsException(string.Format("AppSettings Value \"{0}\" for key \"{1}\" cannot be cast to type \"{2}\"", stringValue, key, typeof(T).FullName), ex);
+                throw new ConfigurationErrorsException(string.Format(@"AppSettings Value ""{0}"" for key ""{1}"" cannot be cast to type ""{2}""", stringValue, key, typeof(T).FullName), ex);
             }
 
             bool castedValueIsValid;
@@ -37,7 +37,7 @@ namespace Passerino.Utils.Configuration.Management.AppConfig
 
             if (!castedValueIsValid)
             {
-                throw new ConfigurationErrorsException(string.Format("AppSettings Value \"{0}\" for key \"{1}\" not validate", stringValue, key, valueValidator));
+                throw new ConfigurationErrorsException(string.Format(@"AppSettings Value ""{0}"" for key ""{1}"" not validate", stringValue, key, valueValidator));
             }
 
             return castedValue;

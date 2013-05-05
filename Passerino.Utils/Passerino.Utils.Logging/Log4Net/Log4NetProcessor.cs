@@ -6,7 +6,7 @@ namespace Passerino.Utils.Logging.Log4Net
 {
     public class Log4NetProcessor : ILogProcessor
     {
-        internal static string ApplicationName { get; set; }
+        public string ApplicationName { get; set; }
         private static readonly Dictionary<Type, ILog> Loggers = new Dictionary<Type, ILog>();
         private static readonly object Lock = new object();
         private Type _source;

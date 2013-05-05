@@ -2,6 +2,6 @@
 {
     public interface IConfigurationValidator
     {
-        bool AssertConfigurationIsValid();
+        void AssertConfigurationIsValid();
     }
 }

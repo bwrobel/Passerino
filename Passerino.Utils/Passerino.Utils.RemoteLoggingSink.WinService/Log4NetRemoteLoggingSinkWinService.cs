@@ -12,19 +12,17 @@ namespace Passerino.Utils.RemoteLoggingSink.WinService
         private readonly int _remotingPort;
         private TcpChannel _channel;
 
-        public Log4NetRemoteLoggingSinkWinService(ILog4NetRemoteLoggingSinkConfiguration configuration,ILogProcessor logProcessor)
+        public Log4NetRemoteLoggingSinkWinService(int remotingPort ,ILogProcessor logProcessor)
         {
-            
-            log4net.Config.XmlConfigurator.Configure();
             InitializeComponent();
 
             _logProcessor = logProcessor.SetSource(GetType());
-            _remotingPort = configuration.RemotingPort;
-            _channel = new TcpChannel(_remotingPort);
+            _remotingPort = remotingPort;
         }
 
         protected override void OnStart(string[] args)
         {
+            _channel = new TcpChannel(_remotingPort);
             ChannelServices.RegisterChannel(_channel, false);
 
             RemotingConfiguration.RegisterWellKnownServiceType(

@@ -1,13 +1,30 @@
 ﻿using System;
 using Passerino.Utils.Configuration.Management.AppConfig;
+using Passerino.Utils.Logging;
 
 namespace Passerino.Utils.Configuration.Management
 {
     public class ConfigManager : IConfigManager
     {
+        private readonly ILogProcessor _logProcessor;
+
+        public ConfigManager(ILogProcessor logProcessor)
+        {
+            _logProcessor = logProcessor.SetSource(GetType());
+        }
+
         public T GetAppSetting<T>(string key, Func<T, bool> valueValidator = null)
         {
-            return AppConfigManager.Get(key, valueValidator);
+            try
+            {
+                return AppConfigManager.Get(key, valueValidator);
+            }
+            catch (Exception ex)
+            {
+                _logProcessor.Fatal("Cannot get App Settings with key \"{0}\"", key).WithException(ex).Proceed();
+                throw;
+            }
+            
         }
 
 

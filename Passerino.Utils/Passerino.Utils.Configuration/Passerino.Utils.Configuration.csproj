@@ -33,6 +33,10 @@
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
@@ -47,8 +51,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Management\AppConfig\AppConfigManager.cs" />
+    <Compile Include="Management\AutoMapperConfig\AutoMapperConfigManager.cs" />
+    <Compile Include="Management\AutoMapperConfig\AutoMapperRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Management\AutoMapperConfig\EntityMapper.cs" />
+    <Compile Include="Management\AutoMapperConfig\IEntityMapper.cs" />
     <Compile Include="Management\ConfigManager.cs" />
     <Compile Include="Management\IConfigManager.cs" />
+    <Compile Include="Management\Log4NetConfig\Log4NetConfigManager.cs" />
+    <Compile Include="Management\Log4NetConfig\Log4NetRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Management\StructureMapConfig\AssemblyIoCVisibleAttribute.cs" />
+    <Compile Include="Management\StructureMapConfig\StructureMapConfigManager.cs" />
+    <Compile Include="Management\StructureMapConfig\StructureMapRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\IConfigurationValidator.cs" />
     <Compile Include="Validation\StructureMap\StructureMapValidator.cs" />

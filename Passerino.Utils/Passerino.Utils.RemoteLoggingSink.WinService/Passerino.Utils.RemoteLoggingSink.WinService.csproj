@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ILog4NetRemoteLoggingSinkConfiguration.cs" />
+    <Compile Include="IoC\RemoteLoggingSinkRegistry.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Log4NetRemoteLoggingSinkWinService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -83,9 +85,7 @@
       <Name>Passerino.Utils.Logging</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IoC\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>

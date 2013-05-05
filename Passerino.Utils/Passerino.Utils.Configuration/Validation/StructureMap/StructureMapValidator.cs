@@ -1,7 +1,7 @@
 ﻿using System;
+using Passerino.Utils.Configuration.Management.Log4NetConfig;
 using Passerino.Utils.Logging;
 using StructureMap;
-using StructureMap.Configuration.DSL;
 
 namespace Passerino.Utils.Configuration.Validation.StructureMap
 {
@@ -9,33 +9,28 @@ namespace Passerino.Utils.Configuration.Validation.StructureMap
     {
         private readonly ILogProcessor _logProcessor;
 
-        public StructureMapValidator(ILogProcessor logProcessor)
+        public StructureMapValidator()
         {
-            _logProcessor = logProcessor.SetSource(GetType());
+            _logProcessor = Log4NetConfigManager
+                .GetInstance(Environment.CurrentDirectory)
+                .SetSource(GetType());
         }
 
-        public bool AssertConfigurationIsValid()
+        public void AssertConfigurationIsValid()
         {
-            var configurationIsValid = true;
-            foreach (var registry in ObjectFactory.GetAllInstances<Registry>())
+            try
             {
-                try
-                {
-                    ObjectFactory.Initialize(init => init.AddRegistry(registry));
-                    ObjectFactory.AssertConfigurationIsValid();
-                }
-                catch (Exception ex)
-                {
-                    
-                    _logProcessor
-                        .Fatal("AssertConfiguration Failed for Registry \"{0}\"",registry.GetType().FullName)
-                        .WithException(ex)
-                        .Proceed();
-
-                    configurationIsValid = false;
-                }
+                ObjectFactory.AssertConfigurationIsValid();
             }
-            return configurationIsValid;
+            catch (Exception ex)
+            {
+                    
+                _logProcessor
+                    .Fatal("StructureMap Configuration Validation Failed")
+                    .WithException(ex)
+                    .Proceed();
+                throw;
+            }
         }
     }
 }
