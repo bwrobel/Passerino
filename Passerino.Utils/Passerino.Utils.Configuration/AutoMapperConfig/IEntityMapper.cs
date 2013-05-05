@@ -1,4 +1,4 @@
-﻿namespace Passerino.Utils.Configuration.Management.AutoMapperConfig
+﻿namespace Passerino.Utils.Configuration.AutoMapperConfig
 {
     public interface IEntityMapper
     {

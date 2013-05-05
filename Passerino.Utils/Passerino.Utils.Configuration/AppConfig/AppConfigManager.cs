@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 
-namespace Passerino.Utils.Configuration.Management.AppConfig
+namespace Passerino.Utils.Configuration.AppConfig
 {
     public static class AppConfigManager
     {

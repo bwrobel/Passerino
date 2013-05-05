@@ -1,7 +1,7 @@
 using System.Linq;
 using AutoMapper;
 
-namespace Passerino.Utils.Configuration.Management.AutoMapperConfig
+namespace Passerino.Utils.Configuration.AutoMapperConfig
 {
     public class EntityMapper : IEntityMapper
     {

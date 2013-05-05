@@ -1,6 +1,6 @@
 using System;
 
-namespace Passerino.Utils.Configuration.Management
+namespace Passerino.Utils.Configuration
 {
     public interface IConfigManager
     {

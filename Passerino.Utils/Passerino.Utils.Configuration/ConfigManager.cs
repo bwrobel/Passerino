@@ -1,8 +1,8 @@
 ﻿using System;
-using Passerino.Utils.Configuration.Management.AppConfig;
+using Passerino.Utils.Configuration.AppConfig;
 using Passerino.Utils.Logging;
 
-namespace Passerino.Utils.Configuration.Management
+namespace Passerino.Utils.Configuration
 {
     public class ConfigManager : IConfigManager
     {

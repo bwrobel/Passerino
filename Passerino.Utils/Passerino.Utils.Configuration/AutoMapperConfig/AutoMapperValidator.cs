@@ -3,7 +3,7 @@ using AutoMapper;
 using Passerino.Utils.Logging;
 using StructureMap;
 
-namespace Passerino.Utils.Configuration.Validation.AutoMapper
+namespace Passerino.Utils.Configuration.AutoMapperConfig
 {
     public class AutoMapperValidator : IConfigurationValidator
     {

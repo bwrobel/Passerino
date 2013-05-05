@@ -1,4 +1,4 @@
-﻿namespace Passerino.Utils.Configuration.Validation
+namespace Passerino.Utils.Configuration
 {
     public interface IConfigurationValidator
     {

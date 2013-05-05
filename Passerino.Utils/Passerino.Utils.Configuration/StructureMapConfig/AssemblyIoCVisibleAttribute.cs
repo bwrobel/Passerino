@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Passerino.Utils.Configuration.Management.StructureMapConfig
+namespace Passerino.Utils.Configuration.StructureMapConfig
 {
     [ComVisible(true)]
-    [AttributeUsageAttribute(AttributeTargets.Assembly, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Assembly, Inherited = false)]
     public class AssemblyIoCVisibleAttribute : Attribute
     {
         public bool Visible { get; private set; }

@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using AutoMapper;
 using AutoMapper.Mappers;
-using Passerino.Utils.Configuration.Management.StructureMapConfig;
-using Passerino.Utils.Configuration.Validation.AutoMapper;
+using Passerino.Utils.Configuration.StructureMapConfig;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 
-namespace Passerino.Utils.Configuration.Management.AutoMapperConfig
+namespace Passerino.Utils.Configuration.AutoMapperConfig
 {
     public class AutoMapperRegistry : Registry  
     {
@@ -21,14 +20,9 @@ namespace Passerino.Utils.Configuration.Management.AutoMapperConfig
             For<ITypeMapFactory>().Use<TypeMapFactory>();
             For<IMappingEngine>().Use<MappingEngine>();
 
-            
-            //custom enti
-            For<IEntityMapper>().Use<EntityMapper>();
-
-
             Scan(scan =>
             {
-                scan.AssembliesFromPath(Environment.CurrentDirectory, StructureMapConfigManager.IsIoCVisibleAssembly);
+                scan.AssembliesFromPath(Environment.CurrentDirectory, StructureMapConfigManager.AssemblyIsIoCVisible);
                 scan.AddAllTypesOf<Profile>();
                 scan.WithDefaultConventions();
             });

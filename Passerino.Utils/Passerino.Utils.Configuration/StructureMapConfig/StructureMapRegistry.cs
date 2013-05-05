@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using AutoMapper;
-using Passerino.Utils.Configuration.Validation.StructureMap;
-using StructureMap;
+﻿using StructureMap;
 using StructureMap.Configuration.DSL;
 
-namespace Passerino.Utils.Configuration.Management.StructureMapConfig
+namespace Passerino.Utils.Configuration.StructureMapConfig
 {
     public class StructureMapRegistry : Registry
     {

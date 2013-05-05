@@ -1,5 +1,4 @@
-﻿using Passerino.Utils.Configuration.Management;
-using Passerino.Utils.Configuration.Validation;
+﻿using Passerino.Utils.Configuration;
 using Passerino.Utils.Logging;
 using StructureMap;
 using StructureMap.Configuration.DSL;

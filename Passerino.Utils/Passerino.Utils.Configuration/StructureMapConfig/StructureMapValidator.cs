@@ -1,9 +1,9 @@
 ﻿using System;
-using Passerino.Utils.Configuration.Management.Log4NetConfig;
+using Passerino.Utils.Configuration.Log4NetConfig;
 using Passerino.Utils.Logging;
 using StructureMap;
 
-namespace Passerino.Utils.Configuration.Validation.StructureMap
+namespace Passerino.Utils.Configuration.StructureMapConfig
 {
     public class StructureMapValidator : IConfigurationValidator
     {

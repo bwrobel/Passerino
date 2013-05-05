@@ -1,7 +1,7 @@
 ﻿using Passerino.Utils.Logging;
 using Passerino.Utils.Logging.Log4Net;
 
-namespace Passerino.Utils.Configuration.Management.Log4NetConfig
+namespace Passerino.Utils.Configuration.Log4NetConfig
 {
     public static class Log4NetConfigManager
     {
