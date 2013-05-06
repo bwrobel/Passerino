@@ -80,6 +80,10 @@
       <Project>{F9E61BD5-DA8B-490A-B43E-FDD236294746}</Project>
       <Name>Passerino.Utils.Configuration</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Passerino.Utils.IoC\Passerino.Utils.IoC.csproj">
+      <Project>{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}</Project>
+      <Name>Passerino.Utils.IoC</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Passerino.Utils.Logging\Passerino.Utils.Logging.csproj">
       <Project>{75122337-dbaa-4e5f-935a-27db957ef7b0}</Project>
       <Name>Passerino.Utils.Logging</Name>

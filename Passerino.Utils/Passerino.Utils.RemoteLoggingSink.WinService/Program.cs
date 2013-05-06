@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
-using Passerino.Utils.Configuration.Log4NetConfig;
-using Passerino.Utils.Configuration.StructureMapConfig;
+using Passerino.Utils.IoC.StructureMap;
+using Passerino.Utils.Logging.Log4Net;
 using StructureMap;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
