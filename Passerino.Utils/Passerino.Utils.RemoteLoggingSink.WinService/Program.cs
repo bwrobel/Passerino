@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
-using Passerino.Utils.IoC.StructureMap;
-using Passerino.Utils.Logging.Log4Net;
+using Passerino.Utils.IoC;
+using Passerino.Utils.Logging;
 using StructureMap;
 
 namespace Passerino.Utils.RemoteLoggingSink.WinService
@@ -13,12 +13,12 @@ namespace Passerino.Utils.RemoteLoggingSink.WinService
         /// </summary>
         static void Main()
         {
-            var log = Log4NetConfigManager.GetInstance(Environment.CurrentDirectory).SetSource(typeof(Program));
+            var logFactory = new Log4NetLogFactory();
+            var log = logFactory.New(typeof (Program));
 
             try
             {
-                new StructureMapConfigManager(Log4NetConfigManager.GetInstance(Environment.CurrentDirectory))
-                    .Initialize();
+                new StructureMapConfigManager(logFactory).Initialize();
             }
             catch (Exception ex)
             {

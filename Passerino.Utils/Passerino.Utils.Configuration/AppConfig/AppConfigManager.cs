@@ -5,7 +5,7 @@ namespace Passerino.Utils.Configuration.AppConfig
 {
     public static class AppConfigManager
     {
-        public static T Get<T>(string key, Func<T, bool> valueValidator)
+        public static T Get<T>(string key, Func<T, bool> valueValidator = null)
         {
             if (string.IsNullOrWhiteSpace(key)) throw new ArgumentException("AppSettings Key is invalid", "key");
 
@@ -37,7 +37,7 @@ namespace Passerino.Utils.Configuration.AppConfig
 
             if (!castedValueIsValid)
             {
-                throw new ConfigurationErrorsException(string.Format(@"AppSettings Value ""{0}"" for key ""{1}"" not validate", stringValue, key, valueValidator));
+                throw new ConfigurationErrorsException(string.Format(@"AppSettings Value ""{0}"" for key ""{1}"" not validate", stringValue, key));
             }
 
             return castedValue;

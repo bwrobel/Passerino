@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using Passerino.Utils.Domain;
+using Passerino.Utils.Domain.IoC;
 using Passerino.Utils.IoC;
 
 // General Information about an assembly is controlled through the following 

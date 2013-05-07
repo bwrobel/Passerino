@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -45,21 +49,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppConfig\AppConfigManager.cs" />
-    <Compile Include="ConfigManager.cs" />
-    <Compile Include="IConfigManager.cs" />
+    <Compile Include="DefaultConfigManager.cs" />
+    <Compile Include="IoC\ConfigManagerRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Passerino.Utils.IoC\Passerino.Utils.IoC.csproj">
-      <Project>{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}</Project>
-      <Name>Passerino.Utils.IoC</Name>
+    <ProjectReference Include="..\Passerino.Utils.Caching.EnterpriseLibrary\Passerino.Utils.Caching.EnterpriseLibrary.csproj">
+      <Project>{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}</Project>
+      <Name>Passerino.Utils.Caching.EnterpriseLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Passerino.Utils.Logging\Passerino.Utils.Logging.csproj">
-      <Project>{75122337-DBAA-4E5F-935A-27DB957EF7B0}</Project>
-      <Name>Passerino.Utils.Logging</Name>
+    <ProjectReference Include="..\Passerino.Utils.Caching.MemoryCache\Passerino.Utils.Caching.MemoryCache.csproj">
+      <Project>{A5B25653-BEA5-41D6-98FE-65B5EDFD6448}</Project>
+      <Name>Passerino.Utils.Caching.MemoryCache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Passerino.Utils.Domain\Passerino.Utils.Domain.csproj">
+      <Project>{93DBB2D5-5EDD-426F-991A-3280A0F59AAC}</Project>
+      <Name>Passerino.Utils.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

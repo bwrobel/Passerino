@@ -76,17 +76,29 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Passerino.Utils.Caching.Redis\Passerino.Utils.Caching.Redis.csproj">
+      <Project>{3A81CD0A-59D3-4A44-AF70-0359593BE0F3}</Project>
+      <Name>Passerino.Utils.Caching.Redis</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Passerino.Utils.Configuration\Passerino.Utils.Configuration.csproj">
       <Project>{F9E61BD5-DA8B-490A-B43E-FDD236294746}</Project>
       <Name>Passerino.Utils.Configuration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Passerino.Utils.IoC\Passerino.Utils.IoC.csproj">
-      <Project>{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}</Project>
-      <Name>Passerino.Utils.IoC</Name>
+    <ProjectReference Include="..\Passerino.Utils.Domain\Passerino.Utils.Domain.csproj">
+      <Project>{93DBB2D5-5EDD-426F-991A-3280A0F59AAC}</Project>
+      <Name>Passerino.Utils.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Passerino.Utils.Logging\Passerino.Utils.Logging.csproj">
-      <Project>{75122337-dbaa-4e5f-935a-27db957ef7b0}</Project>
-      <Name>Passerino.Utils.Logging</Name>
+    <ProjectReference Include="..\Passerino.Utils.IoC.StructureMap\Passerino.Utils.IoC.StructureMap.csproj">
+      <Project>{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}</Project>
+      <Name>Passerino.Utils.IoC.StructureMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Passerino.Utils.Logging.Log4Net\Passerino.Utils.Logging.Log4Net.csproj">
+      <Project>{9B131B35-D136-4E91-B14C-BDAADB50B183}</Project>
+      <Name>Passerino.Utils.Logging.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Passerino.Utils.Mapping.AutoMapper\Passerino.Utils.Mapping.AutoMapper.csproj">
+      <Project>{E50FBD29-607A-47CE-A4AB-4F3CD55A2EA1}</Project>
+      <Name>Passerino.Utils.Mapping.AutoMapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
