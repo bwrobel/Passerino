@@ -15,11 +15,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.Mapping.Aut
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.IoC.StructureMap", "Passerino.Utils.IoC.StructureMap\Passerino.Utils.IoC.StructureMap.csproj", "{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.Caching.EnterpriseLibrary", "Passerino.Utils.Caching.EnterpriseLibrary\Passerino.Utils.Caching.EnterpriseLibrary.csproj", "{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.Caching.Redis", "Passerino.Utils.Caching.Redis\Passerino.Utils.Caching.Redis.csproj", "{3A81CD0A-59D3-4A44-AF70-0359593BE0F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Utils.Caching.MemoryCache", "Passerino.Utils.Caching.MemoryCache\Passerino.Utils.Caching.MemoryCache.csproj", "{A5B25653-BEA5-41D6-98FE-65B5EDFD6448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Finance.Web", "Passerino.Finance.Web\Passerino.Finance.Web.csproj", "{C3668472-78FA-4AD4-9859-49CDED463AF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Passerino.Finance.Domain", "Passerino.Finance.Domain\Passerino.Finance.Domain.csproj", "{8E4EACA7-B481-450D-8449-0516D0DE7E93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{0DF59697-E983-41DF-AD7E-194E66DE058F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,10 +60,6 @@ Global
 		{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4F9AD44-FF3E-42AB-9CE6-E064554EE395}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A81CD0A-59D3-4A44-AF70-0359593BE0F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A81CD0A-59D3-4A44-AF70-0359593BE0F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A81CD0A-59D3-4A44-AF70-0359593BE0F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -68,9 +68,28 @@ Global
 		{A5B25653-BEA5-41D6-98FE-65B5EDFD6448}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5B25653-BEA5-41D6-98FE-65B5EDFD6448}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5B25653-BEA5-41D6-98FE-65B5EDFD6448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3668472-78FA-4AD4-9859-49CDED463AF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3668472-78FA-4AD4-9859-49CDED463AF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3668472-78FA-4AD4-9859-49CDED463AF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3668472-78FA-4AD4-9859-49CDED463AF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E4EACA7-B481-450D-8449-0516D0DE7E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E4EACA7-B481-450D-8449-0516D0DE7E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E4EACA7-B481-450D-8449-0516D0DE7E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E4EACA7-B481-450D-8449-0516D0DE7E93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5B25653-BEA5-41D6-98FE-65B5EDFD6448} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{3A81CD0A-59D3-4A44-AF70-0359593BE0F3} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{F9E61BD5-DA8B-490A-B43E-FDD236294746} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{93DBB2D5-5EDD-426F-991A-3280A0F59AAC} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{D5B32D18-CC51-4CE9-9199-F056B86910ED} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{DBA65BC5-BDE5-4809-9A4E-807BADE98DFA} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{9B131B35-D136-4E91-B14C-BDAADB50B183} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{E50FBD29-607A-47CE-A4AB-4F3CD55A2EA1} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
+		{A7A5296D-8194-4117-913B-017486F3DD1A} = {0DF59697-E983-41DF-AD7E-194E66DE058F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35
